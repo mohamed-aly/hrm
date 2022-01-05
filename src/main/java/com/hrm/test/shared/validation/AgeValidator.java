@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 
 public class AgeValidator implements ConstraintValidator<ValidAge, Employee> {
 
-    private final static String PATTERN_MAX = "yyMMdd";
+    private final static String PATTERN = "yyMMdd";
 
     @Override
     public void initialize(ValidAge constraintAnnotation) {
@@ -20,7 +20,7 @@ public class AgeValidator implements ConstraintValidator<ValidAge, Employee> {
     @Override
     public boolean isValid(Employee employee, ConstraintValidatorContext context) {
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(PATTERN_MAX);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(PATTERN);
             LocalDate birthDate = LocalDate.parse(employee.getNationalId().substring(1, 7), formatter);
             LocalDate now = LocalDate.now();
 
