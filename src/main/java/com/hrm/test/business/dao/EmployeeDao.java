@@ -48,7 +48,7 @@ public class EmployeeDao {
                         "or e.branch.name like :query ",
                 Employee.class);
 
-        RootGraph<Employee> graph = GraphParser.parse(Employee.class, "employee", currentSession);
+        RootGraph<Employee> graph = GraphParser.parse(Employee.class, "branch", currentSession);
         sessionQuery.applyFetchGraph(graph);
 
         sessionQuery.setFirstResult(pageNumber * pageable.getPageSize());

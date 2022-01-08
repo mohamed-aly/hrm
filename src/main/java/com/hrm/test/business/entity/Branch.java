@@ -23,6 +23,6 @@ public class Branch implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Pattern(regexp = "^[\\u0600-\\u06FF\\s\\-]+$")
+    @Pattern(regexp = "^[\\u0600-\\u06FF\\s\\-]+$", message = "Invalid Name")
     private String name;
 }
